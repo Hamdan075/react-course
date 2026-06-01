@@ -3,6 +3,37 @@
 
 <head>
     <title>Chatbot</title>
+    <style>
+        .maindiv{
+            
+            
+        }
+        .send{
+            background-color: rgb(25,135,84);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            margin-left: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+        }
+        .field{
+            padding: 12px 15px;
+            border-radius: 10px;
+            border-width: 1px;
+            font-size: 15px;
+            flex-grow: 1;
+        }
+        .chat-input-container{
+            display: flex;
+        }
+        .app-container{
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
 </head>
 
 <body>
@@ -54,16 +85,17 @@
             }
 
             return (
-                <>
+                <div class='chat-input-container'>
                     <input
+                        class ='field'
                         placeholder="Send a message to Chatbot"
                         size="30"
                         onChange={saveInputText}
                         value={inputText}
                         onKeyDown={handleKeyDown}
                     />
-                    <button onClick={sendMessage}>Send</button>
-                </>
+                    <button class='send' onClick={sendMessage}>Send</button>
+                </div>
             )
         }
         function ChatMessage({ message, sender }) {
@@ -136,7 +168,7 @@
             // const setChatMessages = array[1];
 
             return (
-                <>
+                <div class='app-container'>
                     <ChatInput
                         chatMessages={chatMessages}
                         setChatMessages={setChatMessages}
@@ -144,7 +176,7 @@
                     <ChatMessages
                         chatMessages={chatMessages}
                     />
-                </>
+                </div>
             );
         }
         const container = document.querySelector('.js-container');
